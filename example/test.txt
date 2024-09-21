@@ -1,0 +1,34 @@
+Li Ming, male, born on July 1, 1990
+Address: Room 306, Unit 2, Floor 3, Apt. 19, Zone 10 Heping Streest, Chaoyang District
+Master of Economics, Oxford University
+Identity card No.: 91140519900701486X
+Passport No.: E12345678
+Driving license: 210282199909304779
+Blood grouping: "A"
+Rh (D) Typing: POSITIVE
+
+Member of Family
+Name	Relationships	Identity card No.
+Li Si	Father	91140519670923362X
+Zhang Yi	Mother	91140519660104983X
+Li Xun	Older sister	91140519881106118X
+Liu Xiao	Wife	322123199012121234
+Li Le	Son	91140520140512999X
+
+Asset
+Real Estate			
+Property Title Number	Co-ownership Circumstance	Location	Building Area（m2）
+X000123023	Sole possession	Room 306, Unit 2, Floor 3, Apt. 19, Zone 10 Heping Streest, Chaoyang District	130
+Deposit			
+Account No.	Currency＆Amount	Date of Account Opening	
+62225886553190707 	CNY1000000.00	January 16, 2020	
+Fund			
+Fund Name	Fund code	Fund shares	Market value (CNY)
+United Global Resources Fund	SG9999002500	120000	960000
+Stock			
+Stock Name	Holding	Date of Holding	
+Chuangfei Network Technology Co., LTD	10%	December 26, 2018	
+Vehicle			
+Vehicle Type	Vehicle Brand	Vehicle Models	VIN
+Car	BMW	WDDGF7HR	XDDGF7HR739
+
