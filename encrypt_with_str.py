@@ -1,15 +1,3 @@
-'''
-FilePath: encrypt_with_str.py
-Author: wang yu
-Date: 2023-11-24 15:14:53
-LastEditTime: 2024-09-21 18:01:53
-'''
-'''
-FilePath: split_info_with_primer.py
-Author: wang yu
-Date: 2023-11-20 13:56:26
-LastEditTime: 2023-11-24 14:31:24
-'''
 import argparse
 
 def get_opts():
