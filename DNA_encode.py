@@ -1,9 +1,3 @@
-'''
-FilePath: DNA_encode.py
-Author: wang yu
-Date: 2023-09-19 14:28:46
-LastEditTime: 2024-09-21 21:35:12
-'''
 import numpy as np
 
 QUA2BASE = {'0':'A','1':'T','2':'C','3':'G'}
@@ -11,7 +5,6 @@ BASE2QUA = {'A':'0','T':'1','C':'2','G':'3'}
 
 def byte2base(data:bytes) -> str:
     res = ''
-    print(len(data))
     for byte in data:
         if byte < 128:
             if byte < 64:
@@ -91,9 +84,6 @@ def balance(dna:str) -> str:
             sub_dna = dna[pos1:]
         flag = pos2
         new_dna += sub_dna
-    print(f'raw: {len(dna)}, new: {flag}')
-    print('raw: ', dna)
-    print('new: ', new_dna)
     return new_dna
 
 def parse4bases(qua_list: list, sub_dna: str) -> list:
@@ -158,8 +148,6 @@ def base2byte(dna:str) -> bytes:
         else:
             raw_seq += sub_dna
         flag = pos2
-    print('new: {}, raw: {}'.format(len(dna), len(raw_seq)))
-    print('raw: ', raw_seq)
     for i in qua_list:
         if i > 256:
             print(i)
