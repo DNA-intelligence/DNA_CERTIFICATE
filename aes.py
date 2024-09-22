@@ -1,17 +1,3 @@
-'''
-FilePath: aes.py
-Author: wang yu
-Date: 2023-08-07 16:06:51
-LastEditTime: 2023-11-26 14:26:18
-'''
-'''
-FilePath: aes.py
-Author: wang yu
-Date: 2023-08-07 16:06:51
-LastEditTime: 2023-08-28 17:04:30
-
-usage: python aes.py -i input -o output -t [encode or decode] -k key_fa
-'''
 from Crypto.Cipher import AES
 import numpy as np
 import argparse
@@ -29,19 +15,16 @@ def get_opts():
     group.add_argument('-k', '--key', required=False, help="key for decryption")
     return group.parse_args()
 
-# 字节填充
 def pad(data, block_size):
     padding_size = block_size - len(data) % block_size
     padding = "0" * padding_size
     return data + padding.encode(), padding_size
 
-# 除去填充字节
 def unpad(data, padding_size):
     if padding_size > len(data):
         raise ValueError("不合法填充")
     return data[:-padding_size]
 
-# 字节转碱基
 def byte2base(data:bytes) -> str:
     res = ''
     for byte in data:
@@ -50,13 +33,11 @@ def byte2base(data:bytes) -> str:
         res += dna
     return res
 
-# 碱基转字节
 def base2byte(dna:str) -> bytes:
     qua_data =  ''.join([BASE2QUA[x] for x in dna])
     bytearr = bytearray([int(qua_data[i:i + 4], 4) for i in range(0,len(qua_data),4)])
     return bytearr
 
-# 计算GC比例
 def getSetByGC(dna:str) -> set:
     gc_content = (dna.count("C") + dna.count("G")) / len(dna)
     if gc_content>=0.5:
@@ -64,7 +45,6 @@ def getSetByGC(dna:str) -> set:
     else:
         return {'G','C'}
 
-#均衡
 def add_base(dna:str) -> str:
     if len(dna)%5!=0:
         res_nu = len(dna)%5
@@ -90,7 +70,6 @@ def add_base(dna:str) -> str:
                 dna_res += base5 + list(base_set)[np.random.choice([0,1])]
     return dna_res
 
-# 删除均衡
 def del_base(dna:str) -> str:
     if len(dna)%6!=0:
         res_nu = len(dna)%6
@@ -104,8 +83,7 @@ def del_base(dna:str) -> str:
         base5 = dna[i*6:i*6+5]
         dna_res += base5
     return dna_res
-  
-# 加密过程
+
 def encrypt(data, key):
     iv = os.urandom(AES.block_size)
     cipher = AES.new(key, AES.MODE_CBC, iv)
@@ -114,14 +92,12 @@ def encrypt(data, key):
     ciphertext = cipher.encrypt(padding_data)
     return iv + ciphertext, padding_size
 
-# 解密过程
 def decrypt(ciphertext, key, padding_size):
     iv = ciphertext[:AES.block_size]
     cipher = AES.new(key, AES.MODE_CBC, iv)
     result = cipher.decrypt(ciphertext[AES.block_size:])
     return unpad(result, padding_size)
 
-# 编码
 def encode(input,key):
     with open(input, 'rb') as f:
         data = f.read()
